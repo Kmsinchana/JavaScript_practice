@@ -61,3 +61,20 @@ console.log(objectformemory2.email)
 console.log(objectformemory.email)
 //this doesn't work strings are immutable
 //The object is mutable, so we can change its property to point to a different string value.
+
+
+
+// var is not block-scoped it may lead to loss of some important data as it will get assigned with new value easily
+let newx= 'a'
+var newy ='b'
+const newz = 'c'
+
+if(true){
+    let newx = 3;
+    var newy = 4    //here the value of newy will get updated and the pevious value will get lost  so thats why we say var is not a block scoped we need to try avois it
+    const newz =5
+}
+
+    console.log(newx)
+    console.log(newy)
+    console.log(newz)
