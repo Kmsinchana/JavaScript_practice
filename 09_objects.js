@@ -20,6 +20,7 @@ const funct1 = function(){
 console.log(funct1()) //Since funct1() doesn't have a return statement, it implicitly returns undefined
 funct1()
 
+// Singleton pattern is a design pattern which restricts a class to instantiate its multiple objects. It is nothing but a way of defining a class. Class is defined in such a way that only one instance of the class is created in the complete execution of a program or project. 
 class Singleton {
   constructor() {
     if (Singleton.instance) {
