@@ -73,8 +73,11 @@ if(true){
     let newx = 3;
     var newy = 4    //here the value of newy will get updated and the pevious value will get lost  so thats why we say var is not a block scoped we need to try avois it
     const newz =5
+    console.log("inner X :", newx)
+    console.log("inner y :", newy)
+    console.log("inner z :", newz)
 }
 
-    console.log(newx)
-    console.log(newy)
-    console.log(newz)
+    console.log("outer X :", newx)
+    console.log("outer y :",newy)// here newy will be not in scope
+    console.log("outer z :",newz)
