@@ -2,8 +2,8 @@ const a=89;
 let x= "sinchana"
 var y= "k m"; // string
 var k = 'avh' //string
-z=67;
-let i;
+z=67; //this creates a global variable (not recommended)
+let i; //if nothing is initialized it will be undefined
 let j = null;
 x="sinchana in ascendion"
 console.table([a,x,y,i,z])
@@ -32,6 +32,7 @@ console.log(typeof function1) // output is function but it is formally called as
 console.log(typeof k)
 console.log(typeof i) // return type is undefinde
 console.log(typeof j) // this return type is object
+//typeof null returns "object"
 
 //*************************************************************************/
 

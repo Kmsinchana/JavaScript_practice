@@ -18,7 +18,7 @@ const newstring = new String("hello world")
 console.log(newstring)
 
 let newstring2 = newstring
-newstring2.replace("hello","b") // i cannot ise this because strings are immutable(once creted cannot be changed)
+newstring2.replace("hello","b") // cannot use this method because strings are immutable(once creted cannot be changed)
 console.log(newstring)
 console.log(newstring2)
 
@@ -31,7 +31,7 @@ console.log(trimstring.trim())  // we also have trimstart and trimend
 console.log(newstring.charAt(1))
 console.log(newstring.toUpperCase())
 console.log(newstring.indexOf("o")) // The first "o" appears at index 4, If the character is not found, indexOf() returns -1
-//it does not take negative value if it is given take that as 0
+//substring does not take negative value if it is given take that as 0
 console.log(newstring.substring(-1,3))
 console.log(newstring.substring(0,3)) // start with oth index print 3 character
 console.log(newstring.substring(3)) //start with #rd index print all 
@@ -41,7 +41,7 @@ console.log(newstring.slice(-5,-3))
 //-5 means count 5 characters back from the end
 //-3 means count 3 characters back from the end
 console.log(newstring.slice(-3)) //last 3 charcter
-
+console.log(newstring.slice(0,5)) //it will give output from the start index which is mentioned here it is zero from there it give 5 character
 console.log(newstring.search("l")) //return the first matching index
 console.log(newstring.split("o"))
 console.log(newstring.split("o",2)) //this will return 2 array which is split by o

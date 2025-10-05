@@ -60,7 +60,7 @@ usingThisOutsideTheObject() // Node.js or IDE: logs global
 
 //*******************arrow cunction*****************************//
 
-//it same as function remove function name and add =>
+//it same as function remove function keyword and function name and add =>
 //Arrow functions don't bind their own this — they inherit it from their parent scope.
 //Do not have their own this
 //They inherit this from their surrounding lexical scope (i.e., where they were defined)
