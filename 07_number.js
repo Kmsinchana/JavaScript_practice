@@ -5,18 +5,20 @@ let numobject = new Number(20.989282)
 console.log(numobject)
 
 //to fixed
-console.log(numobject.toFixed(4))
+console.log(numobject.toFixed(4)) //after pint it print 4 digit
+// toPrecision formats the number to have exactly the number of significant digits you specify.
 //to exponential(return type is string)
 let cons = numobject.toPrecision(4) 
 console.log(cons)
 console.log(typeof(cons)) //string
-console.log(numobject.toPrecision(1)) //If the number is very large or very small, toPrecision() might return the value in exponential notation.
+console.log(numobject.toPrecision(1)) //If the number is big and the precision you specify is less than the number of digits before the decimal point, then .toPrecision() switches to exponential notation (scientific notation) to represent the number with the required significant digits.
 //tolocalstring
 let num1 = new Number(67819282)
 console.log(num1.toLocaleString('en-IN', {style: 'currency', currency:'INR'})) // show the number in indian format
 
 //dates 
 let date = new Date()
+//in en-GB Stands for English (United Kingdom).DD/MM/YYYY
 console.log(date.toLocaleString('en-GB')) //21/07/2025
 console.log(date.toLocaleString('en-GB',{year:'numeric',month:"long",day:"numeric"})) //21 July 2025
 
@@ -46,7 +48,7 @@ console.log(Math.floor(Math.random()*(max-min))+ min)
 console.log(Math.floor(8.8)) //8
 console.log(Math.floor(-5.9)) //-6
 console.log(Math.floor("hello")) //Nan
-console.log(Math.ceil(5.1)) //5
+console.log(Math.ceil(5.1)) //6
 console.log(Math.ceil(-9.6)) //-9
 console.log(Math.round(5.5555)) //6
 console.log(Math.abs(-5)) //5

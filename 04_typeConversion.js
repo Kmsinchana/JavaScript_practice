@@ -37,7 +37,7 @@ console.log(f) //45 ->45 , true->true, null->null, undefined ->undefined
 //let g =""
 let g ="name"
 let res2= Boolean(g)
-console.log(res2) //10->true, 0->false, null->false, false ->false, ""->false,"name"->true
+console.log(res2) //10->true, 0->false, null->false,undefined->false false ->false, ""->false,"name"->true
 
 // operation in js
 

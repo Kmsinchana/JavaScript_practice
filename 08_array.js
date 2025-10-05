@@ -17,11 +17,11 @@ console.log(fruits.unshift("banana")) //returns the length of the array
 
 console.log(fruits.join("-")) //the output is string and it will add the - as seperator between the character
 
-let sliceop = fruits.slice(1,3) 
+let sliceop = fruits.slice(1,3) // copies elements from index 1 to 2 (3 not included)
 console.log(sliceop)
-console.log(fruits)
+console.log(fruits) //original array remains same
 
-let spiceop = fruits.splice(1,3)
+let spiceop = fruits.splice(1,3) // copies elements from index 1 to 2 (3 not included)
 console.log(spiceop)
 console.log(fruits) //the reaminig element after spice operation
 
@@ -39,9 +39,9 @@ console.log([...arr1, ...arr2])
 // console.log(arr1)
 
 console.log(Array.isArray(arr1))
-let newaray=Array.of(9,0,"sinch")
+let newaray=Array.of(9,0,"sinch") //Returns a new array from a set of elements.
 console.log(newaray)
-
+// .flat() returns a new array, and does not modify the original array.
 let arrnes = [1,2,3,[4,5,[6,7]]]
 console.log(arrnes.flat(1))//[1,2,3,4,5,[6,7]] depth means number of brackets its will reduce
 console.log(arrnes.flat(2))//[1,2,3,4,5,6,7]

@@ -69,7 +69,7 @@ console.log(datenew.getDate()+3)
 
 //difference betwee ios and local date
 
-console.log(date.toISOString()) //returns in UTC format
+console.log(date.toISOString()) //returns in UTC date in ISO format
 console.log(date.toLocaleString()) //return in local formate 
 console.log(date.getTimezoneOffset()) // e.g., -330 for IST
 
