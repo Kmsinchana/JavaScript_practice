@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        .whole-body{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body class="whole-body">
+    <div>
+       <h1 id="heading-tag" class="class-heading">Hello everyone <strong style="display: none;">i am inside the heading</strong></h1>
+       <p id="paragraph-tag1" class="class-paragraph">Lorem, ipsum dolor.</p>
+       <p id="paragraph-tag2" class="class-paragraph">Lorem, ipsum dolor.</p>
+       <h2>Lorem, ipsum dolor1.</h2>
+       <h2>Lorem, ipsum dolor2.</h2>
+       <h2>Lorem, ipsum dolor3.</h2>
+       <h2>Lorem, ipsum dolor4.</h2>
+       <ul>
+        <li class="li-elemet">apple</li> <!--to select multiple line we can press alt -->
+        <li class="li-elemet">papaya</li>
+        <li class="li-elemet">graphes</li>
+       </ul>
+    </div>
+</body>
+    <script>
+        let getFirstH2 = document.querySelector('h2') //the o/p will be the first matching element(input will be same as we give to the css)
+        let getbyid = document.querySelector('#paragraph-tag') //If no match is found, it returns null.
+        console.log(getFirstH2)
+        console.log(getbyid)
+        //to let the first li and chage the color to red
+        let ui =document.querySelector('ul') 
+        let li = document.querySelector('li')
+        li.style.color ='red'
+        console.log(ui)
+        console.log(li)
+        //query SelectorAll
+        //Returns a static NodeList (not live) of all elements matching the CSS selector.
+        //If no matches, returns an empty NodeList ([]-like object).
+        let getParagraph = document.querySelectorAll('.class-paragraph')
+        console.log(getParagraph)
+        //to fetch all the text content in li
+        let uiall = document.querySelectorAll('ul')
+        let lialls = document.querySelectorAll('li') //ouput will be in nodelist
+       // nodeList has forEach function in prototype
+        lialls.forEach(element => {
+            console.log(element.textContent)
+        });
+
+        //get element by class name
+        let allElementByClass = document.getElementsByClassName('li-elemet') // this output is HTMLCOLLECTION
+        //i need to convert the html elemet to array
+        let convertToArray = Array.from(allElementByClass)
+        convertToArray.forEach(function(element){
+            element.style.border ="20px solid green"
+        })
+    </script>
+</html>
+
+<!-- if i leave space between class element then it means that we as assigning two classes eg: whole body whole will be one class name and body will be other class name  -->
+ <!-- in the console window 
+  to get the element
+ document.getElementById('heading-tag') this will give output
+  <h1 id="heading-tag", class="class-heading">Hello everyone</h1>
+ to get the only class name with id
+ document.getElementById('heading-tag').className   //here class won't work we need to give className only
+ output
+class-heading
+ or
+ document.getElementById('heading-tag').getAttribute('class')
+ output
+ class-heading
+i can also set the attribute name by
+document.getElementById('heading-tag').setAttribute('class','newclass')
+output will be changed we can see that o/p in elements tab
+
+i can also set the style in the browser
+let title =document.getElementById('heading-tag')
+title.style.backgroundColor = 'red'
+title.style.borderRadius = '20px'
+
+title.innerHtml
+title.innerText
+title.textContent
+
+ -->
