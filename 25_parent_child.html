@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>previous sibling</p>
+    <div class="parent-div" id="parent">
+        <h2 id="child1">Lorem, ipsum dolor1.</h2>
+        <h2 id="child2">Lorem, ipsum dolor2.</h2>
+        <h2 id="child3">Lorem, ipsum dolor3.</h2>
+        <h2 id="child4">Lorem, ipsum dolor4.</h2>
+        <h2 id="child5">Lorem, ipsum dolor5.</h2>
+    </div>
+    <p>next sibling</p>
+</body>
+<script>
+    let parent = document.getElementById('parent')
+    let children = parent.children   //this will give all the childre to the parents in html collection
+    console.log(children)
+    //we can find the first element and last element child
+    let firstChild = parent.firstElementChild
+    console.log(firstChild)
+    let lastChild = parent.lastElementChild
+    console.log(lastChild)
+    //i can get the previous sibling and next sibling
+    let previousSibling = parent.previousElementSibling
+    console.log(previousSibling)
+    let nextSibling = parent.nextElementSibling
+    console.log(nextSibling)
+    //to get the child node
+    //it will consider whitesapce also as text
+    let parentNode = parent.childNodes
+    console.log(parentNode)
+
+    //i can get the parent information from child
+    let childToGetParent = document.querySelector('h2')
+    let ParentFromChild = childToGetParent.parentElement
+    console.log(ParentFromChild)
+
+    //i can remove the child
+    console.log(parent.removeChild(children[1])) //child will be removed you can see in html page
+</script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>other get selector</title>
+</head>
+<body>
+    <p id="para" class="value">taking the information about user in form</p>
+    <!-- When a form is submitted, only the inputs with a name attribute are sent to the server-->
+    <form action="submit.php" method="post">
+        <!-- name input -->
+        <label for="name">full mane</label><br>
+         <input type="text" name="input-name" placeholder="enter the name"><br>
+         <!-- email input -->
+         <label for="email">enter the email</label><br>
+         <input type="text" name="input-email" placeholder="enter the email"/><br>
+         <!-- age input -->
+        <label for="age">select the age</label><br>
+        <input type="radio" name="gender" id="male" value="male">
+        <label for="male">male</label>
+        <input type="radio" name="gender" id="female" value="female">
+        <label for="female">feamle</label>
+    </form>
+    <a name="list">the list</a>
+<ul>
+  <li><a href="http://google.com">http://google.com</a></li>
+  <li><a href="/tutorial">/tutorial.html</a></li>
+  <li><a href="local/path">local/path</a></li>
+  <li><a href="ftp://ftp.com/my.zip">ftp://ftp.com/my.zip</a></li>
+  <li><a href="http://nodejs.org">http://nodejs.org</a></li>
+  <li><a href="http://internal.com/test">http://internal.com/test</a></li>
+</ul>
+</body>
+<script>
+    let elementByName = document.getElementsByName("gender")
+    console.log(elementByName) //output will be in nodelist
+    //for queryselector all i can give attribue as well
+    let freshAttribute1 = document.querySelectorAll('input[name = "input-name"]') 
+    console.log(freshAttribute1)
+    let freshAttribute2 = document.querySelectorAll('p[class = "value"]') 
+    console.log(freshAttribute2)
+    //fetch the first and last input from form
+    let firstValue = document.querySelector('input')
+    console.log(firstValue)
+    let lastvalue = document.querySelectorAll('input')
+    console.log(lastvalue[lastvalue.length-1]) //i can acess nolist like array
+
+
+    //question
+    // make all external link orange
+    // A link is external if:
+    // Its href has :// in it
+    // But doesn’t start with http://internal.com.
+    let queryInput = 'a[href*="://"]:not([href^="http://internal.com"])'; //href* means href contains href$ end with 
+    //i should not leave space before or after the =
+    let output = document.querySelectorAll(queryInput)
+    console.log(output)
+    output.forEach(element => {
+        element.style.color = "orange"
+    });
+</script>
+</html>
