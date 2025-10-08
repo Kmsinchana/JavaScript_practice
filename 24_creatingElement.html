@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //question given by chat gpt
+// Create a div element with:
+// id="card"
+// a class of "box"
+// Inside that div, add a h2 element with the text "Welcome User".
+// Also inside the div, add a p element with the text "This is a dynamic element created using JavaScript."
+// Style the div to have:
+// Width: 300px
+// Padding: 20px
+// Background color: #f0f0f0
+// Border: 1px solid #ccc
+// Text alignment: center
+// Finally, append this entire structure to the <body> of the page using JavaScript only."**
+//after submitting code i got some suggestion from chat gpt
+//While innerText works fine, textContent is slightly faster and more consistent across browsers:
+
+   //creating a div
+   let div = document.createElement('div')
+   console.log(div)
+   div.id = "card" //adding id to div
+   div.className = "box" //adding className to div
+
+   //creating h2
+   let h2 = document.createElement('h2')
+   //console.log(h2)
+  // h2.innerText = "Welcome User" changing this as per suggestion
+   h2.textContent = "Welcome User"
+
+   //appending h2
+   div.append(h2)
+
+   //creating paragraph
+   let paragraph = document.createElement('p')
+   //console.log(paragraph)
+  //paragraph.innerText = "This is a dynamic element created using JavaScript."
+  paragraph.textContent = "This is a dynamic element created using JavaScript."
+
+  //appending paragraph
+   div.append(paragraph)
+
+   //styling the div
+    div.style.width = "300px";
+    div.style.padding = '20px';
+    div.style.backgroundColor = '#f0f0f0';
+    div.style.border = '1px solid #ccc';
+    div.style.textAlign = 'center';
+
+    //appending the structure to the body
+    document.body.append(div) //this will except node as well as string as input and used in modren DOM
+</script>
+</html>
