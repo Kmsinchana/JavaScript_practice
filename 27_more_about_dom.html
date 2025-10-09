@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <ul id="adding-li">
+        <li>apple</li>
+    </ul>
+</body>
+<script>
+    //more optimized code here the whole node will not be traversed a .innerhtml
+    let ul = document.getElementById('adding-li')
+    console.log(ul)
+    let textCont = document.createTextNode("graph")
+    let li = document.createElement('li')
+    li.append(textCont)
+    ul.append(li)
+
+    //i can get the nth element from query selector
+    let secondChild = document.querySelector('li:nth-child(2)')
+    console.log(secondChild)
+    //i can get first child and last child as well
+    let firstChild = document.querySelector('li:first-child')
+    console.log(firstChild)
+    let lastChild = document.querySelector('li:last-child')
+    console.log(lastChild)
+</script>
+</html>
