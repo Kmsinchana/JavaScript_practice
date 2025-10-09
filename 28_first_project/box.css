@@ -1,0 +1,59 @@
+.box{
+    /* span is display inline(Inline elements in HTML are elements that do not begin on a new line and only occupy the width necessary for their content.) so it does not permit to set height and width so we can use display inline-block
+    Like inline: Elements sit next to each other on the same line (horizontally), if there's space.you can set width, height, margin, padding on them (like block elements).They do NOT start on a new line by default. */
+    display: inline-block; 
+    width: 60px;
+    height: 60px;
+    border: 2px solid black;
+    padding: 20px;
+    margin: 20px;
+    /* this whill change the cursore to pinter when the cursoer is on box */
+    cursor: pointer; 
+}
+h1{
+    /* text-align: center; */
+    font-size: 40px;
+    color:rgba(14, 211, 10, 0.756);
+}
+p{
+    font-size: 30px;
+    color: pink;
+}
+#red{
+    background-color: red;
+}
+#green{
+    background-color: green;
+}
+#orange{
+    background-color: orange;
+}
+#yellow{
+    background-color: yellow;
+}
+#brown{
+    background-color: brown;
+}
+#refresh{
+    /* button are inline-block element */
+    display: block;
+    /* margin: 0 auto only centers block-level elements horizontally. */
+    margin: 0 0 320px 320px;
+    /* here0 auto means:
+       margin-top: 0
+       margin-bottom: 0
+       margin-left: 320 space to the left of the element
+       margin-right: 320  space to the right of the element*/
+    width: 80px;
+    height: 50px;
+    cursor: pointer;
+    background-color: #3EB489; /* Minty teal */
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;        /* rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
