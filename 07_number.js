@@ -5,9 +5,9 @@ let numobject = new Number(20.989282)
 console.log(numobject)
 
 //to fixed
-console.log(numobject.toFixed(4)) //after pint it print 4 digit
+console.log(numobject.toFixed(4)) //after point it print 4 digit
 // toPrecision formats the number to have exactly the number of significant digits you specify.
-//to exponential(return type is string)
+//to toPrecision(return type is string)
 let cons = numobject.toPrecision(4) 
 console.log(cons)
 console.log(typeof(cons)) //string
@@ -55,3 +55,17 @@ console.log(Math.abs(-5)) //5
 let arr= new Array(56,99,67,88,100)
 //console.log(Math.max(arr)) //expects individual numbers as arguments, not an array ,gives Nan as output
 console.log(Math.max(...arr))// spread operator (...) it expands an iterable (like an array) into individual arguments
+
+
+//parse int 
+let string = '123'
+let ConvertedNumber = parseInt(string) //used to conver string to number
+console.log(typeof(ConvertedNumber))
+
+let string2 = '123a'
+let converNum = parseInt(string2)
+console.log(converNum) //123
+
+let string3 = 'a123'
+let conval = parseInt(string3)
+console.log(conval) //NaN
