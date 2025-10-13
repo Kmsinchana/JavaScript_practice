@@ -1,0 +1,67 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #83a4d4, #b6fbff);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h1{
+    text-align: center;
+}
+.bmiform{
+  background-color: white;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+}
+.bmiform button {
+    width: 100px;
+    padding: 10px 15px;
+    margin-left: 160px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 4px;
+    border-top-left-radius: 4px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.5s;
+    font-weight: 500;
+    background-color: red;
+}
+/* when the buttton is cliked  */
+.bmiform button:active {
+  background-color: #cedfe2;
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(211, 84, 84, 0.2);
+}
+
+/* problem both input text field are not starting at same position so we made all the fields as flex inside paragraph */
+/* Make each p tag flex for label + input layout */
+/* align-items controls how child elements are aligned vertically inside a flex container (or cross-axis).
+It only works on the children, not the container itself.
+In flex-direction: row (default), the cross-axis is vertical(|).
+In flex-direction: column, the cross-axis is horizontal(---). */
+
+.bmiform p {
+  display: flex;
+  align-items: center;   
+  /* vertical allignment here(|) */
+  margin-bottom: 15px;
+  justify-content: center;
+}
+
+/* Set fixed width for labels so inputs align */
+.bmiform label {
+  width: 170px; 
+  font-weight: 600;
+}
+
+/* Inputs align nicely now */
+.bmiform input[type="text"] {
+  border: 2px solid black;
+  padding: 8px;
+  border-radius: 5px;
+}

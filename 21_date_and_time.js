@@ -74,3 +74,25 @@ console.log(date.toLocaleString()) //return in local formate
 console.log(date.getTimezoneOffset()) // e.g., -330 for IST
 
 
+//ms in day is    1000*60*60*24
+//ms in hor is     1000*60*60
+//ms in min is     1000*60
+//ms in sec is     1000
+
+//for the time counter to get the remaining time
+let targetTime = Date.now()+(1000*60*60*24) //24 hour ahead from current time
+console.log(targetTime)
+
+//to get the remaining time from now
+setInterval(function(){
+    let currentTime = Date.now();
+    //both targetTime and currentTime both are in milli seconds
+    let difference = targetTime - currentTime //in ms
+    let remainday = Math.floor(difference/(1000*60*60*24)) 
+    let remaininghour = Math.floor((difference%(1000*60*60*24))/(1000*60*60))
+    let remainingMin = Math.floor((difference%(1000*60*60))/(1000*60))
+    let remainigSec = Math.floor((difference%(1000*60))/1000)
+    console.log(`days:${remainday} and time ${remaininghour} and minit ${remainingMin} and second ${remainigSec} `)
+},1000)
+
+
