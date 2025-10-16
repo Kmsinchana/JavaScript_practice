@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- this code can be used make a to tdo list -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        div button {
+            margin-left: 20px;
+        }
+        /* if we make the li as flex the pointer(.) will get removed */
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* Put maximum space between the first child (the text) and the last child (the button)" (justify-content: space-between */
+            margin-bottom: 10px;
+            width: 800px;
+            height: 20px;
+            background-color: rgb(220, 139, 139);
+            margin-left: auto; 
+            /* making the li's to come to center width with described width and height */
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+     <h1>Add your favorite language</h1>
+    <div>
+        <input type="text" name="add language" id="add-language">
+        <button type="button" id="add-button">add language</button>
+    </div>
+</body>
+<script>
+
+    const addLangButton = document.getElementById('add-button')
+    // console.log(addLangButton)
+    let ul = document.createElement('ul')
+    addLangButton.addEventListener('click', function () {
+        let inputLang = document.getElementById('add-language');
+        let inputText = inputLang.value;
+        // console.log(inputLang)
+        let li = document.createElement('li')
+        // console.log("created li")
+        let textNode = document.createTextNode(inputText)
+        let deleteButton = document.createElement('button')
+        deleteButton.innerHTML = 'Delete Me'
+        li.append(textNode)
+        li.append(deleteButton)
+        ul.append(li)
+        document.body.append(ul)
+        inputLang.value = ''//we need to use .value for input here innerHtml won't work
+        deleteButton.addEventListener('click', function () {
+            deleteButton.parentNode.remove();
+        })
+    })
+
+</script>
+
+</html>
