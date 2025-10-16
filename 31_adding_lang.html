@@ -18,7 +18,7 @@
         div button {
             margin-left: 20px;
         }
-
+        /* if we make the li as flex the pointer(.) will get removed */
         li {
             display: flex;
             align-items: center;
@@ -60,7 +60,7 @@
         li.append(deleteButton)
         ul.append(li)
         document.body.append(ul)
-        inputLang.value = ''
+        inputLang.value = ''//we need to use .value for input here innerHtml won't work
         deleteButton.addEventListener('click', function () {
             deleteButton.parentNode.remove();
         })
