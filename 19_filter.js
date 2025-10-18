@@ -44,3 +44,10 @@ const yearbook = books.filter((item)=>{
 })
 
 console.log(yearbook)
+
+//if we pass filter(boolean) the onlu truth value will be considere
+
+let arr = ['1', 0, 'sinchu', null, "arr"]
+console.log(arr.filter(Boolean))
+
+//the output will be [ '1', 'sinchu', 'arr' ]

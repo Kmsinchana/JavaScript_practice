@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #drag{
+            position: absolute;
+            /* position will be default static we need to change this to absolute */
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="click me" id="btn">
+    <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer" id="link">google</a>
+    <div id="box1">box 1</div>
+    <div id="box2">box 2</div>
+    <div id="parent">
+        <button id="child">click me</button>
+    </div>
+    <br>
+    <button id="drag">drag me</button>
+</body>
+<script>
+    let btn = document.getElementById('btn')
+    // when the event happens, the browser creates an event object, puts details into it and pass it as an argument to the handler
+    btn.addEventListener('click', function (event) {
+        console.log(event)
+        console.log(event.type) //this will give the type of event like clik or submit
+        console.log(event.timeStamp) //number of milliseconds since this document was loaded.
+        // if the output is something 4138.9099 then the button is clicked 4 second after the page got loaded
+
+        console.log(event.target) //it return the element that initialized the event
+    })
+
+    let alink = document.getElementById('link')
+    alink.addEventListener('click', function (e) {
+        e.preventDefault()// this will prevent the default behavior like if we clik on link it will not redirect to web page,the form will not get submit
+        alert("link liked but preventDefault method is used")
+    })
+
+    const box1 = document.getElementById('box1')
+    box1.addEventListener('mouseover', function (e) {
+        console.log("mouse entered", e.target) //where the mouse just entered here if we move mose from box2 to 1 the ans box1
+        console.log("mouse came from", e.relatedTarget) //it will give element from where the mouse come from here if we move mose from box2 to 1 the ans is box2 elemet
+    })
+
+
+    //difference between target and currentTarget
+    let parent = document.getElementById('parent')
+    parent.addEventListener('click', function (e) {
+        console.log(e.target) //child element (the actual elemet that triggered the event(where the event started)) 
+        console.log(e.currentTarget) // parent element (the element on which the event listener is currently invoked(the one handling the event))
+    })
+
+
+    //using clientX and clientY
+    let dragBtn = document.getElementById('drag')
+    let buttonDraged = false
+    let offsetx
+    let offsety
+    // This event occurs when a mouse button is pressed down while the mouse pointer is positioned over a specific element.
+    dragBtn.addEventListener('mousedown', function (e) {
+        buttonDraged = true
+        // clientX and clientY give you the cursor’s position inside the viewport.
+        offsetx = e.clientX - dragBtn.offsetLeft  //this will give the postion of button from the point it will dragged(this method is important because we may clik at some point in button and drag this will identify that button position)
+        offsety = e.clientY - dragBtn.offsetTop
+        dragBtn.style.cursor ="grabbing"
+    })
+    // This event occurs repeatedly as the mouse pointer is moved over a specific element. I
+    document.addEventListener('mousemove', function (e) {
+        // clientX and clientY give you the cursor’s position inside the viewport.
+        if (buttonDraged) {
+            dragBtn.style.left = e.clientX - offsetx+"px"
+            dragBtn.style.top = e.clientY - offsety+"px"
+        }
+    })
+    // This event occurs when a mouse button is released while the mouse pointer is positioned over a specific element.
+    document.addEventListener('mouseup',function(e){
+        buttonDraged = false
+        buttonDraged.style.cursor ='grab'
+    })
+</script>
+
+</html>

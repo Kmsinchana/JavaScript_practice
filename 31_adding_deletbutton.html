@@ -61,7 +61,8 @@
         ul.append(li)
         document.body.append(ul)
         inputLang.value = ''//we need to use .value for input here innerHtml won't work
-        deleteButton.addEventListener('click', function () {
+        deleteButton.addEventListener('click', function (e) {
+            // console.log(deleteButton.parentNode)
             deleteButton.parentNode.remove();
         })
     })

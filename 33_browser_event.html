@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Event</title>
+</head>
+<body>
+    <!-- 1st way -->
+     <!-- inside onclick i need to use single quote -->
+    <input type="button" value="click me" onclick="alert('hello')"> 
+    <!-- 2nd way -->
+    <!-- if the we have so many function need to do the prefor the function -->
+    <input type="button" value="click me" onclick="callScript()">
+    <!-- if both html method and script method are used then script method will run by overiding the html method -->
+     <!-- 3rd method -->
+     <input type="button" id="button" value="click me">
+     <!-- both above method are not recommended most used method is DOM method like addEventListener is prefered-->
+
+</body>
+<script>
+   function callScript(){
+        for(let i=1;i<4;i++)
+             alert(`hello count ${i}`)
+    }
+    let button = document.getElementById('button')
+    button.onclick = function(){
+        alert('hi')
+    }
+</script>
+</html>
