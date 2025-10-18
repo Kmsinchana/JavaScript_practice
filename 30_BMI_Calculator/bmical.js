@@ -6,7 +6,7 @@ const result = document.getElementById('result')
 // console.log(bmiForm)
 bmiForm.addEventListener('submit',function(e){
     // problem: after submitting the form the page used to reload we can able to see the output only for few seconds
-    e.preventDefault() //it will prevaent the page from refreshing
+    e.preventDefault() //it will prevaent the page from refreshing(default behaiour is subit the form reload the page it prevented the default behavior)
     //use number instead of parseInt so that it can take decimal value
     // if we doesn't use Number with .value we get Nan
     const weight = Number(document.getElementById('weight').value)//here is fine

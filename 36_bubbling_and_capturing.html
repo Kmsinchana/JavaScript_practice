@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            background-color: blanchedalmond;
+        }
+        li{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul id="images">
+        <li id="elephant">elephant</li>
+        <li id="flower">flower</li>
+    </ul>
+</body>
+<script>
+    //bubbling concept(most used)
+    //if we click on the child child will we called first then parent then its ansistor
+    // const imagepic = document.getElementById('images')
+    // const elephantimg = document.getElementById('elephant')
+    // imagepic.addEventListener('click',function(e){
+    //     console.log("parent ul cliked")
+    // },false); //false will be default we can mention it or not it depends
+    // elephantimg.addEventListener('click',function(e){
+    //     console.log("li elephant clicked")
+    // })
+
+    //method 2 capturing
+    //first ansistor and parent then child will get displayed
+     const imagepic = document.getElementById('images')
+    const elephantimg = document.getElementById('elephant')
+    imagepic.addEventListener('click',function(e){
+        console.log("parent ul cliked")
+    },true); //false will be default we can mention it or not it depends
+    elephantimg.addEventListener('click',function(e){
+        console.log("li elephant clicked")
+    },true)
+</script>
+</html>

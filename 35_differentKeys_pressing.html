@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key pressing</title>
+</head>
+<body>
+    <input type="text" placeholder="enter the alphabet" id="textaplha">
+    <textarea name="" id="restricalphanu"></textarea>
+    <p id="error" style="color:red; display:none;">Enter only alphanumeric characters!</p>
+</body>
+ <script>
+    //click while pressing the ctrl ot alt or shift button
+    document.addEventListener('click',function(e){
+        console.log("pressed control key",e.ctrlKey)//outpur will be true or false
+        console.log("pressed alt key", e.altKey)
+        console.log("pressed shift key", e.shiftKey)
+    })
+    // Use event.key when you need to know the character or symbol produced by the key press (e.g., distinguishing between 'a' and 'A').
+    //Use event.code when you need to identify the physical key pressed on the keyboard, regardless of its character output
+    document.getElementById("textaplha").addEventListener("keydown", function(e){
+        console.log(`key pressed is ${e.key} and key code ${e.code}`)
+    })
+
+    //restricting text area that take only alphabet and number
+    let textbox =document.getElementById('restricalphanu')
+    const errorMsg = document.getElementById('error');
+
+    textbox.addEventListener('keydown',function(e){
+        let alphaNumer = /^[a-zA-Z0-9\s]$/ 
+        const allowedKeys = ["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab","enter"];
+      if (!alphaNumer.test(e.key) && !allowedKeys.includes(e.key)) {
+        e.preventDefault();
+        errorMsg.style.display = "block"; // show message
+      } else {
+        errorMsg.style.display = "none"; // hide when valid key
+      }
+    });
+    //the above code won't work for copy pasted text
+    //if we do copy paste we have to do the below method
+    textbox.addEventListener("paste",function(e){
+        let alphanum = /^[a-zA-Z0-9]+$/ //regular expression with + for multiple character like for sentence
+        //regular expression to check space is
+        let spaceReg = /\s+/ //for nultiple space
+        //console.log(textbox.value) //this will give the o/p before the paste is applied so we get no value
+        pastedText = e.clipboardData.getData('text') //to get the value of copy pasted data 
+       if(!alphanum.test(pastedText)){
+         e.preventDefault();
+        errorMsg.style.display = "block"; // show message
+      } else {
+        errorMsg.style.display = "none"; // hide when valid key
+      }
+    })
+
+    //
+ </script>
+</html>
