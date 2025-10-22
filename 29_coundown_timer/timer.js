@@ -8,7 +8,7 @@ const start = document.getElementById("start")
 const stopButton = document.getElementById('stop')
 const resetBtn = document.getElementById('reset')
 //this setInterval function will run for the interval we specify like 1000 means 1 sec
-
+//async execution code set interval are stored in web api (see the ss)
 start.addEventListener('click',function(e){
     // console.log(e)
     if(!timer){ // it will prevent multiple interval of the start button when user click multiple times
