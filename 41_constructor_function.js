@@ -73,3 +73,35 @@ let thirdUser = new User("sinch",22,true)
 console.log(firstUser == thirdUser)  //false eventhough they have same field  different memory allocation
 //we need to compare their name and age perticularly
 console.log(firstUser.name == thirdUser.name) //true
+
+
+
+//function prototyping
+function protoFunction(name,age){
+    this.name = name 
+    this.age = age
+    console.log(`my name is ${this.name} and age is ${this.age}`)
+}
+
+protoFunction.prototype.incrementAge = function(){
+    return this.age+1
+}
+
+//if we din't use new keyword then we get the below error
+// Cannot read properties of undefined (reading 'incrementAge')
+let newAge = new protoFunction('sinch',22);
+console.log(newAge.incrementAge())
+
+/*
+
+Here's what happens behind the scenes when the new keyword is used:
+
+A new object is created: The new keyword initiates the creation of a new JavaScript object.
+
+A prototype is linked: The newly created object gets linked to the prototype property of the constructor function. This means that it has access to properties and methods defined on the constructor's prototype.
+
+The constructor is called: The constructor function is called with the specified arguments and this is bound to the newly created object. If no explicit return value is specified from the constructor, JavaScript assumes this, the newly created object, to be the intended return value.
+
+The new object is returned: After the constructor function has been called, if it doesn't return a non-primitive value (object, array, function, etc.), the newly created object is returned.
+
+*/
