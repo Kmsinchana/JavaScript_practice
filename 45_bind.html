@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bind</title>
+</head>
+
+<body>
+    <button>button clicked</button>
+</body>
+<script>
+    class react {
+        constructor() {
+            this.server = 'sug'
+            this.port = 'https://localhost:3036'
+            let button =document.querySelector('button')
+            //we we use .call then it will be invoked immediatelt it not wait for the button to be pressed
+           // the value of tis.handleClick would refer to the button element,
+            // because in event listeners, by default, this points to the DOM element that triggered the event
+            button.addEventListener('click',this.handleClick.bind(this))
+            //“Create a new version of handleClick where this is permanently bound to the class instance (the object created by new react()), not the button.”
+            // Without .bind(this) → this in handleClick = button (the event target)
+            // With .bind(this) → this in handleClick = class instance (which has server & port)
+        }
+        handleClick() {
+            console.log('server')
+            console.log(this.port) //this will give undefined without bind because button doesn't have port field
+        }
+    }
+    let newAPP = new react()
+</script>
+
+</html>

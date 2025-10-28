@@ -7,7 +7,7 @@ function setUserName(name){
 function setAge(name,age){
    // setUserName(name)//this will give only age property the name will be not set
     //when the function is called inside the other function it will get called but when its execution is completed the setUserName will get removed from execution context and the value set for the user will also get removed
-    //so we nedd to use the .call method to store the execution context
+    //so we nedd to use the .call method to store the reference of the execution context
     //.call() will Call a function with a specific this value and optionally pass arguments individually.
     setUserName.call(this, name)
     this.age = age
