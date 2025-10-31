@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lexical scope real word example</title>
+</head>
+<body>
+    <div id="paragraph"> 
+        <h1>click on below button to look for the changes in the font size</h1>
+        <button id="size-12" onclick="modifyFont(12)">12</button> 
+        <!-- the above code doesn't work because it will not call the inner function the modifyFont will return the inner function but not execute it so to execute that we can use extra () -->
+        <button id="size-14" onclick="modifyFont(14)()">14</button>
+        <button id="size-16" onclick="modifyFont(16)">16</button>
+        <p id="text"> Consequently, you can use a closure anywhere that you might normally use an object with only a single method.</p>
+    </div>
+</body>
+<script>
+    function modifyFont(size){
+       return ()=>{
+        console.log('cliked')
+        document.getElementById('text').style.fontSize = `${size}px`
+       }
+    }
+    //method 2
+    document.getElementById('size-12').onclick = modifyFont(12)
+    document.getElementById('size-16').onclick = modifyFont(16)
+</script>
+</html>

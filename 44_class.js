@@ -47,8 +47,8 @@ console.log(defineCat.say())
 //we can use gettier and settter in classes
 
 class newCar{
-    constructor(_name,year){
-        this._name = _name
+    constructor(name,year){
+        this.name = name  // 🔹 calls the setter
         this.year = year
     }
     yearOld(){
@@ -56,6 +56,13 @@ class newCar{
         let date = new Date()
         return date.getFullYear()-this.year
     }
+    //if we doen't use _name then both constructor and set will be in a race to assign the value
+    //we get the below error
+    //RangeError: Maximum call stack size exceeded
+
+     //The underscore (_) is just a naming convention — it tells developers:
+
+      //“This property is for internal use, don’t access it directly.”
     get name(){
         return this._name
     }
@@ -73,7 +80,33 @@ let carassign = new newCar('ford',2013)
 //**************getter and setter cannot be called as function*************
 carassign.name = "benx" 
 console.log(carassign.name)
+console.log(carassign._name) //we can able to access the private field but not recommended
 
+
+//for (ES2022+) supports real private variables using #:
+
+class newCarprivate{
+    #name
+    constructor(name,year){
+        this.#name = name  // 🔹 calls the setter
+        this.year = year
+    }
+    yearOld(){
+        // date = new Date() this won't work weneed to follow tge strict mode rules 
+        let date = new Date()
+        return date.getFullYear()-this.year
+    }
+    get name(){
+        return this.#name
+    }
+    set name(value){ //setter will take only one parameter we can't pass two parameter
+        this.#name = value
+    }
+}
+
+let newcarpriv = new newCarprivate('puch',2030)
+//Property '#name' is not accessible outside class 'newCarprivate' because it has a private identifier.ts(18013)
+//console.log(newcarpriv.#name)
 
 //static method
 // static method are defined on the class itself
