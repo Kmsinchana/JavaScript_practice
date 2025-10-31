@@ -52,3 +52,5 @@ for (const key in arr2) {
 for (const key in arr2) {
     console.log(arr2[key])
 }
+
+//to acces the object through for of loop then see the file 47
